@@ -15,32 +15,35 @@ export default function Home() {
   ];
 
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-neutral-50 to-blue-50">
       {/* Header */}
-      <header className="bg-white shadow-sm border-b border-neutral-200">
+      <header className="bg-gradient-to-r from-slate-50 to-blue-50 shadow-lg border-b border-neutral-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+          <div className="flex justify-between items-center h-18">
             <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2">
+              <div className="flex items-center space-x-3">
                 <img 
-                  src="https://lh4.googleusercontent.com/t7PwByZ5pQRvVdK1odJvUlUuPAnKZ1Onke5ABSHbVNIoGHo0iTK-D4y1q74T0VakwkmX7GlQ9_L1KTtsI2-TR_ZJQ-4wsTRDB-DlcOACXH_I4GKPsKd89Kpu7_gsbOK8-_3b41sd0xc=w16383" 
+                  src="https://i.ibb.co/NnFMpkgH/logo.png" 
                   alt="ABHI SOLUTIONS Logo" 
-                  className="h-8 w-8 object-contain"
+                  className="h-10 w-10 object-contain"
                 />
-                <h1 className="text-xl font-bold text-neutral-900">ABHI SOLUTIONS</h1>
+                <div>
+                  <h1 className="text-xl font-bold text-neutral-900">ABHI SOLUTIONS</h1>
+                  <p className="text-xs text-neutral-500 leading-none">Digital Voting Platform</p>
+                </div>
               </div>
             </div>
             
             {/* Navigation Tabs */}
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-2">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-3 py-2 text-sm font-medium transition-colors border-b-2 ${
+                  className={`px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-200 ${
                     activeTab === tab.id
-                      ? "text-primary border-primary"
-                      : "text-neutral-500 hover:text-neutral-700 border-transparent"
+                      ? "bg-primary text-white shadow-md"
+                      : "text-neutral-600 hover:text-neutral-800 hover:bg-white/50"
                   }`}
                 >
                   <i className={`${tab.icon} mr-2`}></i>
@@ -50,11 +53,10 @@ export default function Home() {
             </nav>
 
             <div className="flex items-center space-x-4">
-              <span className="text-sm text-neutral-500">Guest User</span>
-              <button className="bg-neutral-200 hover:bg-neutral-300 px-4 py-2 rounded-lg text-sm font-medium transition-colors">
-                <i className="fas fa-sign-out-alt mr-2"></i>
-                Logout
-              </button>
+              <div className="flex items-center space-x-2 text-sm text-neutral-600">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="font-medium">System Active</span>
+              </div>
             </div>
           </div>
         </div>
@@ -67,10 +69,20 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-neutral-200 mt-auto">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="text-center text-sm text-neutral-600">
-            © ABHI SOLUTIONS
+      <footer className="bg-gradient-to-r from-slate-100 to-blue-100 border-t border-neutral-300 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+            <div className="flex items-center space-x-3">
+              <img 
+                src="https://i.ibb.co/NnFMpkgH/logo.png" 
+                alt="ABHI SOLUTIONS Logo" 
+                className="h-6 w-6 object-contain"
+              />
+              <span className="text-sm font-semibold text-neutral-700">© 2025 ABHI SOLUTIONS</span>
+            </div>
+            <div className="text-xs text-neutral-500">
+              Secure Digital Voting Platform | All Rights Reserved
+            </div>
           </div>
         </div>
       </footer>

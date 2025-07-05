@@ -89,12 +89,18 @@ export function AdminDashboard() {
   if (!isAuthenticated) {
     return (
       <div className="max-w-md mx-auto">
-        <Card className="rounded-xl shadow-lg border border-neutral-200">
+        <Card className="rounded-xl shadow-2xl border border-neutral-300 bg-white/90 backdrop-blur-sm">
           <CardContent className="p-8">
-            <div className="text-center mb-6">
-              <Shield className="w-16 h-16 text-primary mx-auto mb-4" />
-              <h2 className="text-2xl font-bold text-neutral-900">Admin Access</h2>
+            <div className="text-center mb-8">
+              <div className="bg-gradient-to-br from-primary to-blue-700 p-4 rounded-full w-20 h-20 mx-auto mb-6 shadow-lg">
+                <Shield className="w-12 h-12 text-white mx-auto" />
+              </div>
+              <h2 className="text-3xl font-bold text-neutral-900 mb-2">Admin Access</h2>
               <p className="text-neutral-600">Enter your credentials to access the admin dashboard</p>
+              <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-neutral-500">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span>Secure Authentication Required</span>
+              </div>
             </div>
             
             <form onSubmit={handleLogin} className="space-y-4">
@@ -127,7 +133,7 @@ export function AdminDashboard() {
               <Button 
                 type="submit" 
                 disabled={loginMutation.isPending}
-                className="w-full bg-primary hover:bg-blue-700"
+                className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
               >
                 {loginMutation.isPending ? (
                   <>
@@ -137,7 +143,7 @@ export function AdminDashboard() {
                 ) : (
                   <>
                     <i className="fas fa-sign-in-alt mr-2"></i>
-                    Sign In
+                    Access Dashboard
                   </>
                 )}
               </Button>

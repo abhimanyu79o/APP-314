@@ -108,10 +108,17 @@ export function VotingInterface() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <Card className="rounded-xl shadow-lg border border-neutral-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-primary to-blue-600 px-6 py-8 text-white">
-          <h2 className="text-3xl font-bold mb-2">Cast Your Vote</h2>
-          <p className="text-blue-100">Select your preferred candidate for the upcoming election</p>
+      <Card className="rounded-xl shadow-2xl border border-neutral-300 overflow-hidden bg-white/80 backdrop-blur-sm">
+        <div className="bg-gradient-to-r from-blue-600 via-primary to-indigo-600 px-6 py-10 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+          <div className="relative z-10">
+            <h2 className="text-4xl font-bold mb-3">Cast Your Vote</h2>
+            <p className="text-blue-100 text-lg">Select your preferred candidate for the upcoming election</p>
+            <div className="mt-4 flex items-center space-x-2 text-blue-200">
+              <Shield className="w-5 h-5" />
+              <span className="text-sm font-medium">Secure & Anonymous Voting</span>
+            </div>
+          </div>
         </div>
         
         <CardContent className="p-6">
@@ -132,12 +139,16 @@ export function VotingInterface() {
               {candidates.map((candidate) => (
                 <div 
                   key={candidate.id} 
-                  className="candidate-card border border-neutral-200 rounded-lg p-4 hover:border-primary hover:shadow-md transition-all cursor-pointer"
+                  className={`candidate-card border-2 rounded-xl p-6 transition-all duration-300 cursor-pointer transform hover:scale-[1.02] ${
+                    selectedCandidate === candidate.id.toString()
+                      ? "border-primary bg-blue-50 shadow-lg"
+                      : "border-neutral-200 bg-white hover:border-blue-300 hover:shadow-md"
+                  }`}
                   onClick={() => setSelectedCandidate(candidate.id.toString())}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-16 h-16 bg-neutral-200 rounded-full flex items-center justify-center overflow-hidden">
+                    <div className="flex items-center space-x-6">
+                      <div className="w-20 h-20 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full flex items-center justify-center overflow-hidden shadow-inner">
                         {candidate.symbolImage ? (
                           <img 
                             src={candidate.symbolImage} 
@@ -145,19 +156,25 @@ export function VotingInterface() {
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <span className="text-xl font-bold text-neutral-600">
+                          <span className="text-2xl font-bold text-neutral-600">
                             {candidate.name.charAt(0)}
                           </span>
                         )}
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-neutral-900">{candidate.name}</h3>
-                        <p className="text-xs text-neutral-500">{candidate.experience}</p>
+                        <h3 className="text-xl font-bold text-neutral-900 mb-1">{candidate.name}</h3>
+                        <p className="text-sm text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full inline-block">
+                          {candidate.experience}
+                        </p>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <RadioGroupItem value={candidate.id.toString()} id={`candidate-${candidate.id}`} />
-                      <Label htmlFor={`candidate-${candidate.id}`} className="text-sm font-medium text-neutral-500">
+                      <RadioGroupItem 
+                        value={candidate.id.toString()} 
+                        id={`candidate-${candidate.id}`}
+                        className="w-6 h-6"
+                      />
+                      <Label htmlFor={`candidate-${candidate.id}`} className="text-base font-semibold text-neutral-700">
                         Select
                       </Label>
                     </div>
@@ -168,26 +185,32 @@ export function VotingInterface() {
           </RadioGroup>
 
           {/* Vote Confirmation */}
-          <div className="mt-8 pt-6 border-t border-neutral-200">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center text-sm text-neutral-600">
-                <Shield className="w-4 h-4 text-secondary mr-2" />
-                Your vote is secure and anonymous
+          <div className="mt-10 pt-8 border-t border-neutral-300">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              <div className="flex items-center space-x-3 text-neutral-600">
+                <div className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg">
+                  <Shield className="w-5 h-5 text-green-600" />
+                  <span className="text-sm font-medium">Secure & Anonymous</span>
+                </div>
+                <div className="flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-lg">
+                  <CheckCircle className="w-5 h-5 text-blue-600" />
+                  <span className="text-sm font-medium">Verified System</span>
+                </div>
               </div>
               <Button 
                 onClick={handleSubmitVote}
                 disabled={!selectedCandidate || castVoteMutation.isPending}
-                className="bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-8"
+                className="bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
               >
                 {castVoteMutation.isPending ? (
                   <>
-                    <i className="fas fa-spinner fa-spin mr-2"></i>
+                    <i className="fas fa-spinner fa-spin mr-3"></i>
                     Casting Vote...
                   </>
                 ) : (
                   <>
-                    <CheckCircle className="w-4 h-4 mr-2" />
-                    Cast Vote
+                    <CheckCircle className="w-5 h-5 mr-3" />
+                    Cast Your Vote
                   </>
                 )}
               </Button>
