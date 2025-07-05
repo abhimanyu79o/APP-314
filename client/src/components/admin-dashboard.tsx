@@ -95,8 +95,8 @@ export function AdminDashboard() {
               <div className="bg-gradient-to-br from-purple-600 to-indigo-700 p-4 rounded-full w-20 h-20 mx-auto mb-6 shadow-xl">
                 <Shield className="w-12 h-12 text-white mx-auto" />
               </div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-purple-900 mb-2">Royal Admin Access</h2>
-              <p className="text-purple-700">Enter your credentials to access the royal dashboard</p>
+              <h2 className="text-2xl sm:text-3xl font-bold text-purple-900 mb-2">Admin Access</h2>
+              <p className="text-purple-700">Enter your credentials to access the admin dashboard</p>
               <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-purple-600">
                 <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
                 <span>Secure Authentication Required</span>
@@ -138,12 +138,12 @@ export function AdminDashboard() {
                 {loginMutation.isPending ? (
                   <>
                     <i className="fas fa-spinner fa-spin mr-2"></i>
-                    Accessing Royal Dashboard...
+                    Accessing Dashboard...
                   </>
                 ) : (
                   <>
                     <i className="fas fa-crown mr-2"></i>
-                    Access Royal Dashboard
+                    Access Dashboard
                   </>
                 )}
               </Button>

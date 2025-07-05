@@ -31,7 +31,7 @@ export default function Home() {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-2xl font-bold text-white">ABHI SOLUTIONS</h1>
-                <p className="text-sm text-purple-200 leading-none">Royal Digital Voting Platform</p>
+                <p className="text-sm text-purple-200 leading-none">Digital Voting Platform</p>
               </div>
               <div className="sm:hidden">
                 <h1 className="text-lg font-bold text-white">ABHI</h1>
@@ -39,44 +39,33 @@ export default function Home() {
               </div>
             </div>
             
-            {/* Navigation Tabs - Desktop */}
-            <nav className="hidden md:flex space-x-1">
+            {/* Navigation Tabs */}
+            <nav className="flex space-x-1">
               {tabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-6 py-3 text-sm font-semibold rounded-xl transition-all duration-300 ${
+                  className={`px-4 md:px-6 py-2 md:py-3 text-xs md:text-sm font-semibold rounded-xl transition-all duration-300 ${
                     activeTab === tab.id
                       ? "bg-white text-purple-800 shadow-lg transform scale-105"
                       : "text-purple-200 hover:text-white hover:bg-white/10"
                   }`}
                 >
-                  <i className={`${tab.icon} mr-2`}></i>
-                  {tab.label}
+                  <i className={`${tab.icon} mr-1 md:mr-2`}></i>
+                  <span className="hidden sm:inline">{tab.label}</span>
+                  <span className="sm:hidden">{tab.label.charAt(0)}</span>
                 </button>
               ))}
             </nav>
 
-            {/* Status & Mobile Menu */}
+            {/* Status */}
             <div className="flex items-center space-x-3">
-              <div className="hidden lg:flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
+              <div className="hidden md:flex items-center space-x-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                 <span className="text-sm font-medium text-white">Live</span>
               </div>
-              
-              {/* Mobile Navigation */}
               <div className="md:hidden">
-                <select 
-                  value={activeTab} 
-                  onChange={(e) => setActiveTab(e.target.value as Tab)}
-                  className="bg-white/10 text-white border border-white/20 rounded-lg px-3 py-2 text-sm font-medium backdrop-blur-sm"
-                >
-                  {tabs.map((tab) => (
-                    <option key={tab.id} value={tab.id} className="text-purple-800">
-                      {tab.label}
-                    </option>
-                  ))}
-                </select>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </div>
             </div>
           </div>
@@ -106,7 +95,7 @@ export default function Home() {
               <span className="text-sm font-bold text-white">© 2025 ABHI SOLUTIONS</span>
             </div>
             <div className="text-xs text-purple-200 text-center md:text-right">
-              Royal Digital Voting Platform<br className="md:hidden" />
+              Digital Voting Platform<br className="md:hidden" />
               <span className="hidden md:inline"> | </span>All Rights Reserved
             </div>
           </div>
