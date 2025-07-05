@@ -22,8 +22,12 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2">
-                <Vote className="text-2xl text-primary" />
-                <h1 className="text-xl font-bold text-neutral-900">VoteSecure</h1>
+                <img 
+                  src="https://lh4.googleusercontent.com/t7PwByZ5pQRvVdK1odJvUlUuPAnKZ1Onke5ABSHbVNIoGHo0iTK-D4y1q74T0VakwkmX7GlQ9_L1KTtsI2-TR_ZJQ-4wsTRDB-DlcOACXH_I4GKPsKd89Kpu7_gsbOK8-_3b41sd0xc=w16383" 
+                  alt="ABHI SOLUTIONS Logo" 
+                  className="h-8 w-8 object-contain"
+                />
+                <h1 className="text-xl font-bold text-neutral-900">ABHI SOLUTIONS</h1>
               </div>
             </div>
             
@@ -61,6 +65,15 @@ export default function Home() {
         {activeTab === "voting" && <VotingInterface />}
         {activeTab === "admin" && <AdminDashboard />}
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-neutral-200 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="text-center text-sm text-neutral-600">
+            © ABHI SOLUTIONS
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

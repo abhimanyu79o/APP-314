@@ -1,8 +1,8 @@
-# VoteSecure - Digital Voting System
+# ABHI SOLUTIONS - Digital Voting System
 
 ## Overview
 
-VoteSecure is a modern full-stack web application for secure digital voting. It provides a comprehensive voting platform with three main interfaces: public voting, administrative management, and real-time results visualization. The application is built using a modern tech stack with React frontend, Express backend, and PostgreSQL database.
+ABHI SOLUTIONS is a modern full-stack web application for secure digital voting. It provides a comprehensive voting platform with three main interfaces: public voting, administrative management, and real-time results visualization. The application is built using a modern tech stack with React frontend, Express backend, and PostgreSQL database.
 
 ## System Architecture
 
@@ -100,6 +100,7 @@ The application uses a hybrid deployment approach:
 Changelog:
 - July 05, 2025. Initial setup
 - July 05, 2025. Updated admin credentials to UNIQUE/UNIQUE123, removed demo credentials from login, moved results view to admin dashboard only, added auto-refresh after voting
+- July 05, 2025. Rebranded application from "VoteSecure" to "ABHI SOLUTIONS", added custom logo and copyright footer
 ```
 
 ## User Preferences
@@ -107,4 +108,5 @@ Changelog:
 Preferred communication style: Simple, everyday language.
 Security: Admin credentials should be unique (UNIQUE/UNIQUE123) and not displayed publicly
 UI/UX: Remove public access to results view, add auto-refresh after voting
+Branding: Application name is "ABHI SOLUTIONS" with custom logo and copyright footer
 ```
