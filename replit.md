@@ -99,9 +99,12 @@ The application uses a hybrid deployment approach:
 ```
 Changelog:
 - July 05, 2025. Initial setup
+- July 05, 2025. Updated admin credentials to UNIQUE/UNIQUE123, removed demo credentials from login, moved results view to admin dashboard only, added auto-refresh after voting
 ```
 
 ## User Preferences
 ```
 Preferred communication style: Simple, everyday language.
+Security: Admin credentials should be unique (UNIQUE/UNIQUE123) and not displayed publicly
+UI/UX: Remove public access to results view, add auto-refresh after voting
 ```

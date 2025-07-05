@@ -18,7 +18,7 @@ export function VotingInterface() {
     queryKey: ["/api/candidates"],
   });
 
-  const { data: voteStatus } = useQuery({
+  const { data: voteStatus } = useQuery<{ hasVoted: boolean }>({
     queryKey: ["/api/votes/check", voterToken],
   });
 
@@ -37,6 +37,10 @@ export function VotingInterface() {
       });
       queryClient.invalidateQueries({ queryKey: ["/api/votes"] });
       queryClient.invalidateQueries({ queryKey: ["/api/candidates"] });
+      // Auto-refresh the page after successful voting
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
     },
     onError: (error: any) => {
       toast({

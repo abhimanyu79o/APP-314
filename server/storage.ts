@@ -42,8 +42,8 @@ export class MemStorage implements IStorage {
     // Create default admin
     const defaultAdmin: Admin = {
       id: this.currentAdminId++,
-      username: "admin",
-      password: "admin123", // In production, this should be hashed
+      username: "UNIQUE",
+      password: "UNIQUE123", // In production, this should be hashed
     };
     this.admins.set(defaultAdmin.id, defaultAdmin);
 

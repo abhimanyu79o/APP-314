@@ -12,7 +12,6 @@ export default function Home() {
   const tabs = [
     { id: "voting" as const, label: "Voting", icon: "fas fa-ballot" },
     { id: "admin" as const, label: "Admin", icon: "fas fa-cog" },
-    { id: "results" as const, label: "Results", icon: "fas fa-chart-pie" },
   ];
 
   return (
@@ -61,7 +60,6 @@ export default function Home() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === "voting" && <VotingInterface />}
         {activeTab === "admin" && <AdminDashboard />}
-        {activeTab === "results" && <ResultsDashboard />}
       </main>
     </div>
   );
