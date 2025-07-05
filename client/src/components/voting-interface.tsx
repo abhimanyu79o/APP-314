@@ -147,8 +147,8 @@ export function VotingInterface() {
                   onClick={() => setSelectedCandidate(candidate.id.toString())}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-4 md:space-x-6">
-                      <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-100 to-indigo-200 rounded-full flex items-center justify-center overflow-hidden shadow-lg flex-shrink-0">
+                    <div className="flex items-center space-x-3 md:space-x-6 flex-1">
+                      <div className="candidate-avatar bg-gradient-to-br from-purple-100 to-indigo-200 flex items-center justify-center overflow-hidden shadow-lg">
                         {candidate.symbolImage ? (
                           <img 
                             src={candidate.symbolImage} 
@@ -156,16 +156,16 @@ export function VotingInterface() {
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <span className="text-xl md:text-2xl font-bold text-purple-600">
+                          <span className="text-xl md:text-2xl font-bold text-purple-600 select-none leading-none">
                             {candidate.name.charAt(0)}
                           </span>
                         )}
                       </div>
-                      <div className="flex-grow">
-                        <h3 className="text-lg md:text-xl font-bold text-purple-900 mb-1">{candidate.name}</h3>
-                        <p className="text-sm text-purple-700 bg-purple-100 px-3 py-1 rounded-full inline-block">
-                          {candidate.experience}
-                        </p>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-lg md:text-xl font-bold text-purple-900 mb-1 truncate">{candidate.name}</h3>
+                        <div className="text-sm text-purple-700 bg-purple-100 px-3 py-1 rounded-full inline-block max-w-full">
+                          <span className="truncate">{candidate.experience}</span>
+                        </div>
                       </div>
                     </div>
                     <div className="flex items-center space-x-3 flex-shrink-0">

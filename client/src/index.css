@@ -31,6 +31,30 @@
   --neutral-900: hsl(0, 0%, 13%);
 }
 
+/* Perfect circles for mobile */
+.candidate-avatar {
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  width: 4rem !important;
+  height: 4rem !important;
+  flex-shrink: 0 !important;
+  position: relative !important;
+}
+
+@media (min-width: 768px) {
+  .candidate-avatar {
+    width: 5rem !important;
+    height: 5rem !important;
+  }
+}
+
+.candidate-avatar img {
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+}
+
 .dark {
   --background: hsl(240, 10%, 3.9%);
   --foreground: hsl(0, 0%, 98%);
