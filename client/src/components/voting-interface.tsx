@@ -78,11 +78,6 @@ export function VotingInterface() {
       // Start cooldown timer
       setCooldownTime(15);
       setSelectedCandidate(""); // Reset selection
-      
-      // Auto-refresh the page after successful voting
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
     },
     onError: (error: any) => {
       toast({
