@@ -222,7 +222,7 @@ export function AdminDashboard() {
                       <thead>
                         <tr className="border-b border-neutral-200">
                           <th className="text-left py-3 px-4 font-semibold text-neutral-700">Candidate</th>
-                          <th className="text-left py-3 px-4 font-semibold text-neutral-700">Party</th>
+                          <th className="text-left py-3 px-4 font-semibold text-neutral-700">Symbol</th>
                           <th className="text-left py-3 px-4 font-semibold text-neutral-700">Votes</th>
                           <th className="text-left py-3 px-4 font-semibold text-neutral-700">Actions</th>
                         </tr>
@@ -243,7 +243,19 @@ export function AdminDashboard() {
                                 </div>
                               </div>
                             </td>
-                            <td className="py-4 px-4 text-neutral-700">{candidate.party}</td>
+                            <td className="py-4 px-4">
+                              {candidate.symbolImage ? (
+                                <img 
+                                  src={candidate.symbolImage} 
+                                  alt="Candidate symbol"
+                                  className="w-8 h-8 object-cover rounded"
+                                />
+                              ) : (
+                                <div className="w-8 h-8 bg-neutral-200 rounded flex items-center justify-center">
+                                  <span className="text-xs text-neutral-500">No symbol</span>
+                                </div>
+                              )}
+                            </td>
                             <td className="py-4 px-4">
                               <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium">
                                 {candidate.votes}

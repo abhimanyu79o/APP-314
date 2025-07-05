@@ -17,15 +17,15 @@ interface AddCandidateModalProps {
 
 interface CandidateForm {
   name: string;
-  party: string;
   experience: string;
+  symbolImage: string;
 }
 
 export function AddCandidateModal({ isOpen, onClose }: AddCandidateModalProps) {
   const [form, setForm] = useState<CandidateForm>({
     name: "",
-    party: "",
     experience: "",
+    symbolImage: "",
   });
   const { toast } = useToast();
 
@@ -52,14 +52,14 @@ export function AddCandidateModal({ isOpen, onClose }: AddCandidateModalProps) {
   });
 
   const handleClose = () => {
-    setForm({ name: "", party: "", experience: "" });
+    setForm({ name: "", experience: "", symbolImage: "" });
     onClose();
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!form.name || !form.party || !form.experience) {
+    if (!form.name || !form.experience) {
       toast({
         title: "Missing Information",
         description: "Please fill in all required fields.",
@@ -75,14 +75,7 @@ export function AddCandidateModal({ isOpen, onClose }: AddCandidateModalProps) {
     setForm(prev => ({ ...prev, [field]: value }));
   };
 
-  const parties = [
-    "Democratic Party",
-    "Republican Party", 
-    "Independent",
-    "Green Party",
-    "Libertarian Party",
-    "Other"
-  ];
+
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -118,21 +111,20 @@ export function AddCandidateModal({ isOpen, onClose }: AddCandidateModalProps) {
           </div>
           
           <div>
-            <Label htmlFor="party" className="block text-sm font-medium text-neutral-700 mb-2">
-              Political Party *
+            <Label htmlFor="symbolImage" className="block text-sm font-medium text-neutral-700 mb-2">
+              Symbol Image URL
             </Label>
-            <Select value={form.party} onValueChange={(value) => handleInputChange("party", value)}>
-              <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select a party" />
-              </SelectTrigger>
-              <SelectContent>
-                {parties.map((party) => (
-                  <SelectItem key={party} value={party}>
-                    {party}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+            <Input
+              id="symbolImage"
+              type="url"
+              value={form.symbolImage}
+              onChange={(e) => handleInputChange("symbolImage", e.target.value)}
+              placeholder="Enter image URL for candidate symbol"
+              className="w-full"
+            />
+            <p className="text-xs text-neutral-500 mt-1">
+              Provide a URL to an image that represents the candidate's symbol
+            </p>
           </div>
           
           <div>

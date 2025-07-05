@@ -7,7 +7,6 @@ interface VoteStats {
   candidates: {
     id: number;
     name: string;
-    party: string;
     votes: number;
     percentage: string;
   }[];
@@ -129,7 +128,7 @@ export function ResultsDashboard() {
                     </div>
                     <div>
                       <h4 className="font-semibold text-neutral-900">{candidate.name}</h4>
-                      <p className="text-sm text-neutral-600">{candidate.party}</p>
+                      <p className="text-sm text-neutral-600">Candidate</p>
                     </div>
                   </div>
                   <div className="text-right">

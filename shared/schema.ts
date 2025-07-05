@@ -5,8 +5,8 @@ import { z } from "zod";
 export const candidates = pgTable("candidates", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
-  party: text("party").notNull(),
   experience: text("experience").notNull(),
+  symbolImage: text("symbol_image"), // URL or path to candidate symbol/image
   votes: integer("votes").notNull().default(0),
 });
 

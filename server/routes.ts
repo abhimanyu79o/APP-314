@@ -119,7 +119,6 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const stats = candidates.map(candidate => ({
         id: candidate.id,
         name: candidate.name,
-        party: candidate.party,
         votes: candidate.votes,
         percentage: totalVotes > 0 ? ((candidate.votes / totalVotes) * 100).toFixed(1) : "0.0",
       }));
