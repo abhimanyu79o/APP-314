@@ -88,17 +88,17 @@ export function AdminDashboard() {
 
   if (!isAuthenticated) {
     return (
-      <div className="max-w-md mx-auto">
-        <Card className="rounded-xl shadow-2xl border border-neutral-300 bg-white/90 backdrop-blur-sm">
-          <CardContent className="p-8">
+      <div className="max-w-md mx-auto px-4 sm:px-0">
+        <Card className="rounded-2xl shadow-2xl border border-purple-200 bg-white/95 backdrop-blur-sm">
+          <CardContent className="p-6 sm:p-8">
             <div className="text-center mb-8">
-              <div className="bg-gradient-to-br from-primary to-blue-700 p-4 rounded-full w-20 h-20 mx-auto mb-6 shadow-lg">
+              <div className="bg-gradient-to-br from-purple-600 to-indigo-700 p-4 rounded-full w-20 h-20 mx-auto mb-6 shadow-xl">
                 <Shield className="w-12 h-12 text-white mx-auto" />
               </div>
-              <h2 className="text-3xl font-bold text-neutral-900 mb-2">Admin Access</h2>
-              <p className="text-neutral-600">Enter your credentials to access the admin dashboard</p>
-              <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-neutral-500">
-                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              <h2 className="text-2xl sm:text-3xl font-bold text-purple-900 mb-2">Royal Admin Access</h2>
+              <p className="text-purple-700">Enter your credentials to access the royal dashboard</p>
+              <div className="mt-4 flex items-center justify-center space-x-2 text-sm text-purple-600">
+                <div className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></div>
                 <span>Secure Authentication Required</span>
               </div>
             </div>
@@ -133,17 +133,17 @@ export function AdminDashboard() {
               <Button 
                 type="submit" 
                 disabled={loginMutation.isPending}
-                className="w-full bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-700 hover:to-indigo-800 text-white font-bold py-3 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 transform hover:scale-105"
               >
                 {loginMutation.isPending ? (
                   <>
                     <i className="fas fa-spinner fa-spin mr-2"></i>
-                    Signing In...
+                    Accessing Royal Dashboard...
                   </>
                 ) : (
                   <>
-                    <i className="fas fa-sign-in-alt mr-2"></i>
-                    Access Dashboard
+                    <i className="fas fa-crown mr-2"></i>
+                    Access Royal Dashboard
                   </>
                 )}
               </Button>

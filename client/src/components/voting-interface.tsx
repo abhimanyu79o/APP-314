@@ -107,28 +107,28 @@ export function VotingInterface() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <Card className="rounded-xl shadow-2xl border border-neutral-300 overflow-hidden bg-white/80 backdrop-blur-sm">
-        <div className="bg-gradient-to-r from-blue-600 via-primary to-indigo-600 px-6 py-10 text-white relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
-          <div className="relative z-10">
-            <h2 className="text-4xl font-bold mb-3">Cast Your Vote</h2>
-            <p className="text-blue-100 text-lg">Select your preferred candidate for the upcoming election</p>
-            <div className="mt-4 flex items-center space-x-2 text-blue-200">
+    <div className="max-w-4xl mx-auto px-2 sm:px-0">
+      <Card className="rounded-2xl shadow-2xl border border-purple-200 overflow-hidden bg-white/90 backdrop-blur-sm">
+        <div className="bg-gradient-to-r from-purple-800 via-primary to-indigo-800 px-4 sm:px-6 py-8 sm:py-10 text-white relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent"></div>
+          <div className="relative z-10 text-center sm:text-left">
+            <h2 className="text-2xl sm:text-4xl font-bold mb-3">Cast Your Vote</h2>
+            <p className="text-purple-100 text-base sm:text-lg">Select your preferred candidate for the upcoming election</p>
+            <div className="mt-4 flex items-center justify-center sm:justify-start space-x-2 text-purple-200">
               <Shield className="w-5 h-5" />
               <span className="text-sm font-medium">Secure & Anonymous Voting</span>
             </div>
           </div>
         </div>
         
-        <CardContent className="p-6">
+        <CardContent className="p-4 sm:p-6">
           {/* Election Status */}
-          <div className="bg-secondary/10 border border-secondary/20 rounded-lg p-4 mb-6">
-            <div className="flex items-center space-x-3">
-              <CheckCircle className="text-secondary text-xl" />
-              <div>
-                <h3 className="font-semibold text-secondary">Election Active</h3>
-                <p className="text-sm text-neutral-600">Voting is currently open</p>
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 mb-6">
+            <div className="flex items-center justify-center sm:justify-start space-x-3">
+              <CheckCircle className="text-purple-600 text-xl" />
+              <div className="text-center sm:text-left">
+                <h3 className="font-semibold text-purple-800">Election Active</h3>
+                <p className="text-sm text-purple-600">Voting is currently open</p>
               </div>
             </div>
           </div>
@@ -139,16 +139,16 @@ export function VotingInterface() {
               {candidates.map((candidate) => (
                 <div 
                   key={candidate.id} 
-                  className={`candidate-card border-2 rounded-xl p-6 transition-all duration-300 cursor-pointer transform hover:scale-[1.02] ${
+                  className={`candidate-card border-2 rounded-2xl p-4 sm:p-6 transition-all duration-300 cursor-pointer transform hover:scale-[1.01] ${
                     selectedCandidate === candidate.id.toString()
-                      ? "border-primary bg-blue-50 shadow-lg"
-                      : "border-neutral-200 bg-white hover:border-blue-300 hover:shadow-md"
+                      ? "border-purple-500 bg-purple-50 shadow-xl ring-2 ring-purple-200"
+                      : "border-purple-200 bg-white hover:border-purple-400 hover:shadow-lg"
                   }`}
                   onClick={() => setSelectedCandidate(candidate.id.toString())}
                 >
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-6">
-                      <div className="w-20 h-20 bg-gradient-to-br from-neutral-100 to-neutral-200 rounded-full flex items-center justify-center overflow-hidden shadow-inner">
+                  <div className="flex flex-col sm:flex-row items-center sm:justify-between space-y-4 sm:space-y-0">
+                    <div className="flex flex-col sm:flex-row items-center space-y-3 sm:space-y-0 sm:space-x-4 md:space-x-6 text-center sm:text-left">
+                      <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-100 to-indigo-200 rounded-full flex items-center justify-center overflow-hidden shadow-lg">
                         {candidate.symbolImage ? (
                           <img 
                             src={candidate.symbolImage} 
@@ -156,14 +156,14 @@ export function VotingInterface() {
                             className="w-full h-full object-cover"
                           />
                         ) : (
-                          <span className="text-2xl font-bold text-neutral-600">
+                          <span className="text-xl sm:text-2xl font-bold text-purple-600">
                             {candidate.name.charAt(0)}
                           </span>
                         )}
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-neutral-900 mb-1">{candidate.name}</h3>
-                        <p className="text-sm text-neutral-600 bg-neutral-100 px-3 py-1 rounded-full inline-block">
+                        <h3 className="text-lg sm:text-xl font-bold text-purple-900 mb-1">{candidate.name}</h3>
+                        <p className="text-sm text-purple-700 bg-purple-100 px-3 py-1 rounded-full inline-block">
                           {candidate.experience}
                         </p>
                       </div>
@@ -172,9 +172,9 @@ export function VotingInterface() {
                       <RadioGroupItem 
                         value={candidate.id.toString()} 
                         id={`candidate-${candidate.id}`}
-                        className="w-6 h-6"
+                        className="w-5 h-5 sm:w-6 sm:h-6"
                       />
-                      <Label htmlFor={`candidate-${candidate.id}`} className="text-base font-semibold text-neutral-700">
+                      <Label htmlFor={`candidate-${candidate.id}`} className="text-sm sm:text-base font-semibold text-purple-700">
                         Select
                       </Label>
                     </div>
@@ -185,31 +185,31 @@ export function VotingInterface() {
           </RadioGroup>
 
           {/* Vote Confirmation */}
-          <div className="mt-10 pt-8 border-t border-neutral-300">
-            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-              <div className="flex items-center space-x-3 text-neutral-600">
-                <div className="flex items-center space-x-2 bg-green-50 px-4 py-2 rounded-lg">
-                  <Shield className="w-5 h-5 text-green-600" />
-                  <span className="text-sm font-medium">Secure & Anonymous</span>
+          <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-purple-200">
+            <div className="flex flex-col space-y-4 lg:flex-row lg:items-center lg:justify-between lg:space-y-0">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-2 sm:space-y-0 sm:space-x-3">
+                <div className="flex items-center space-x-2 bg-green-50 px-3 sm:px-4 py-2 rounded-lg border border-green-200">
+                  <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" />
+                  <span className="text-xs sm:text-sm font-medium text-green-700">Secure & Anonymous</span>
                 </div>
-                <div className="flex items-center space-x-2 bg-blue-50 px-4 py-2 rounded-lg">
-                  <CheckCircle className="w-5 h-5 text-blue-600" />
-                  <span className="text-sm font-medium">Verified System</span>
+                <div className="flex items-center space-x-2 bg-purple-50 px-3 sm:px-4 py-2 rounded-lg border border-purple-200">
+                  <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" />
+                  <span className="text-xs sm:text-sm font-medium text-purple-700">Verified System</span>
                 </div>
               </div>
               <Button 
                 onClick={handleSubmitVote}
                 disabled={!selectedCandidate || castVoteMutation.isPending}
-                className="bg-gradient-to-r from-primary to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold py-4 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
+                className="w-full sm:w-auto bg-gradient-to-r from-purple-600 to-indigo-700 hover:from-purple-700 hover:to-indigo-800 text-white font-bold py-3 sm:py-4 px-6 sm:px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105"
               >
                 {castVoteMutation.isPending ? (
                   <>
-                    <i className="fas fa-spinner fa-spin mr-3"></i>
+                    <i className="fas fa-spinner fa-spin mr-2 sm:mr-3"></i>
                     Casting Vote...
                   </>
                 ) : (
                   <>
-                    <CheckCircle className="w-5 h-5 mr-3" />
+                    <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" />
                     Cast Your Vote
                   </>
                 )}
