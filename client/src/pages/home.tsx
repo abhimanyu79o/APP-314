@@ -17,7 +17,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-indigo-50 to-blue-50">
       {/* Header */}
-      <header className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 shadow-2xl">
+      <header className="bg-gradient-to-r from-purple-800 via-purple-700 to-indigo-800 shadow-2xl hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             {/* Logo and Brand */}
@@ -72,16 +72,36 @@ export default function Home() {
         </div>
       </header>
 
+      {/* Mobile Navigation */}
+      <div className="sm:hidden sticky top-0 z-50 bg-white border-b border-purple-200 shadow-sm">
+        <div className="flex">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`flex-1 px-4 py-3 text-sm font-semibold transition-all duration-300 ${
+                activeTab === tab.id
+                  ? "bg-purple-600 text-white"
+                  : "text-purple-600 hover:bg-purple-50"
+              }`}
+            >
+              <i className={`${tab.icon} mr-2`}></i>
+              {tab.label}
+            </button>
+          ))}
+        </div>
+      </div>
+
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
-        <div className="min-h-[calc(100vh-240px)]">
+        <div className="min-h-[calc(100vh-240px)] sm:min-h-[calc(100vh-240px)]">
           {activeTab === "voting" && <VotingInterface />}
           {activeTab === "admin" && <AdminDashboard />}
         </div>
       </main>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-800 border-t border-purple-700 mt-auto">
+      <footer className="bg-gradient-to-r from-purple-900 via-indigo-900 to-purple-800 border-t border-purple-700 mt-auto hidden sm:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
             <div className="flex items-center space-x-3">

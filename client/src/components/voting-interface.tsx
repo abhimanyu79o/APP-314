@@ -155,7 +155,7 @@ export function VotingInterface() {
   return (
     <div className="max-w-4xl mx-auto px-2 sm:px-0">
       <Card className="rounded-2xl shadow-2xl border border-purple-200 overflow-hidden bg-white/90 backdrop-blur-sm">
-        <div className="bg-gradient-to-r from-purple-800 via-primary to-indigo-800 px-4 sm:px-6 py-8 sm:py-10 text-white relative overflow-hidden">
+        <div className="bg-gradient-to-r from-purple-800 via-primary to-indigo-800 px-4 sm:px-6 py-8 sm:py-10 text-white relative overflow-hidden hidden sm:block">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-600/20 to-transparent"></div>
           <div className="relative z-10 text-center sm:text-left">
             <h2 className="text-2xl sm:text-4xl font-bold mb-3">Cast Your Vote</h2>
