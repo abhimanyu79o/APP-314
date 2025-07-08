@@ -102,31 +102,7 @@ export class DatabaseStorage implements IStorage {
       });
     }
 
-    // Check if sample candidates exist
-    const existingCandidates = await this.getCandidates();
-    if (existingCandidates.length === 0) {
-      const sampleCandidates: InsertCandidate[] = [
-        {
-          name: "John Mitchell",
-          experience: "15 years in public service",
-          symbolImage: null,
-        },
-        {
-          name: "Sarah Chen",
-          experience: "Former Mayor, 8 years",
-          symbolImage: null,
-        },
-        {
-          name: "Robert Taylor",
-          experience: "Business Leader, Community Advocate",
-          symbolImage: null,
-        },
-      ];
-
-      for (const candidateData of sampleCandidates) {
-        await this.createCandidate(candidateData);
-      }
-    }
+    // Database starts with empty candidates - no sample data
   }
 }
 

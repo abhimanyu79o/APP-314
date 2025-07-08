@@ -102,6 +102,9 @@ Changelog:
 - July 05, 2025. Updated admin credentials to UNIQUE/UNIQUE123, removed demo credentials from login, moved results view to admin dashboard only, added auto-refresh after voting
 - July 05, 2025. Rebranded application from "VoteSecure" to "ABHI SOLUTIONS", added custom logo and copyright footer
 - July 05, 2025. Implemented royal purple/indigo color scheme, created mobile-friendly responsive design, removed "royal" branding terminology, updated candidate cards to maintain desktop-style horizontal layout on all screen sizes
+- July 08, 2025. Added 15-second voting cooldown system with timer, progress bar, and beep sounds
+- July 08, 2025. Removed auto-refresh after voting for continuous voting experience
+- July 08, 2025. Removed sample candidate data from database initialization
 ```
 
 ## User Preferences
