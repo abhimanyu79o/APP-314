@@ -47,6 +47,11 @@ export function VotingInterface() {
     } else if (isInCooldown) {
       setIsInCooldown(false);
       playBeep(); // Play beep when cooldown ends
+      
+      // Refresh the page when cooldown ends
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000); // Small delay after beep
     }
   }, [cooldownTime, isInCooldown]);
 
